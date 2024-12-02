@@ -18,7 +18,6 @@ import javax.swing.JTextArea;
 /**
  * Modify this small program adding new filters.
  * Realize this exercise using as much as possible the Stream library.
- *
  * 1) Convert to lowercase
  *
  * 2) Count the number of chars
@@ -38,7 +37,12 @@ public final class LambdaFilter extends JFrame {
         /**
          * Commands.
          */
-        IDENTITY("No modifications", Function.identity());
+        IDENTITY("no modifications", Function.identity()),
+        LOWERCASE("convert to lowercase", String -> String.toLowerCase()),
+        COUNTCHARS("count the number of chars", Function.identity()),
+        COUNTLINES("count the number of lines", Function.identity()),
+        ORDERWORDS("list all the words in alphabetical order", Function.identity()),
+        COUNTFOREACHWORDS("write the count for each word", Function.identity());
 
         private final String commandName;
         private final Function<String, String> fun;
