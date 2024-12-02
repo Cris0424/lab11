@@ -38,8 +38,8 @@ public final class LambdaFilter extends JFrame {
          * Commands.
          */
         IDENTITY("no modifications", Function.identity()),
-        LOWERCASE("convert to lowercase", String -> String.toLowerCase()),
-        COUNTCHARS("count the number of chars", Function.identity()),
+        LOWERCASE("convert to lowercase", s -> s.toLowerCase()),
+        COUNTCHARS("count the number of chars", s -> String.valueOf(s.length())),
         COUNTLINES("count the number of lines", Function.identity()),
         ORDERWORDS("list all the words in alphabetical order", Function.identity()),
         COUNTFOREACHWORDS("write the count for each word", Function.identity());
