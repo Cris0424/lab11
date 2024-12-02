@@ -6,7 +6,10 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.Toolkit;
+import java.util.Arrays;
 import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -41,7 +44,9 @@ public final class LambdaFilter extends JFrame {
         LOWERCASE("convert to lowercase", s -> s.toLowerCase()),
         COUNTCHARS("count the number of chars", s -> String.valueOf(s.length())),
         COUNTLINES("count the number of lines", s -> String.valueOf(s.lines().count())),
-        ORDERWORDS("list all the words in alphabetical order", Function.identity()),
+        ORDERWORDS("list all the words in alphabetical order", word ->
+                Arrays.stream(word.split(" ")).sorted()
+                .collect(Collectors.joining(" guerra frocio "))),
         COUNTFOREACHWORDS("write the count for each word", Function.identity());
 
         private final String commandName;
