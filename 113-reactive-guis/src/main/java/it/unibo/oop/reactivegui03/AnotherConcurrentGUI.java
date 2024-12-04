@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
 
 /**
  * Third experiment with reactive gui.
@@ -48,6 +49,7 @@ public final class AnotherConcurrentGUI extends JFrame {
          */
         final Agent agent = new Agent();
         new Thread(agent).start();
+        
         /*
          * Register a listener that stops it
          */
@@ -66,6 +68,15 @@ public final class AnotherConcurrentGUI extends JFrame {
          */
         down.addActionListener(e -> agent.downCounting());
 
+        new Timer((int) STOP_TIME, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                agent.stopCounting();
+                up.setEnabled(false);
+                down.setEnabled(false);
+                stop.setEnabled(false);
+            }
+        }).start();
     }
 
     /*
