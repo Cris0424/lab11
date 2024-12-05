@@ -10,3 +10,5 @@ Solve the exercises in the following order:
     - There is a special version using `Stream`s, it's there only to give you a glance of advanced Java programming.
 2. `workers02` (see the corresponding package)
     - See the instructions in `TestMatrix` - and notice how a test can be written before the actual implementation (cf. TDD).
+
+    
